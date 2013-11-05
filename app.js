@@ -52,7 +52,6 @@ app.post('/saveTweet', function (request, response) {
 });
 
 app.listen(5500);
-console.log('listening on port 5500');
 
 function getTwitter(request, response) {
 	var webRequest = {
@@ -65,9 +64,6 @@ function getTwitter(request, response) {
 	};
 	webClient(webRequest, function (webError, webResponse, webData) {
 		data = JSON.parse(webData);
-		console.log('max: ' + data.statuses[data.statuses.length - 1].id_str);
-		console.log('query ' + data.search_metadata.query);
-
 		response.send(webData);
 	});
 }
