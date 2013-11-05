@@ -1,0 +1,62 @@
+﻿body {
+	font-family: Arial;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+}
+h1 {
+	font-size: 35pt;
+	color: #686868;
+	margin: 5px;
+}
+h2 {
+	font-size: 25pt;
+	color: #686868;
+	margin: 5px;
+}
+
+#searchContainer {
+	text-align: center;
+	margin: 3px auto;
+}
+	#searchContainer #searchInput {
+		width: 55%;
+		height: 35px;
+		border: 1px solid #b1b1b1;
+		font-size: 14pt;
+	}
+	#searchContainer #searchButton {
+		color: white;
+		border: 1px solid #b1b1b1;
+		background-color: #5a59f1;
+		height: 35px;
+	}
+
+#dataContainer {
+	width: 75%;
+	margin: 20px auto;
+}
+
+#resultsContainer {
+	width: 55%;
+	margin: 20px auto;
+}
+	#resultsContainer textarea {
+		width: 100%;
+		height: 400px;
+		border: 1px solid #b1b1b1;
+	}
+
+.status-unsaved {
+	color: red;
+}
+.status-saved {
+	color:green;
+}
+.show-true {
+	display: block;
+}
+.show-false {
+	display: none;
+}

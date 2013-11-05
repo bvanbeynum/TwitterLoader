@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html />
+
+<html ng-app="loaderApp">
+<head>
+<title>Twitter Loader</title>
+<link type="text/css" rel="stylesheet" href="loader.css" />
+</head>
+<body ng-controller="LoaderControl">
+
+<div id="searchContainer">
+	<h1>Enter Search Term</h1>
+	<form ng-submit="doSearch()">
+		<input type="text" id="searchInput" ng-model="searchText" placeholder="Enter search term" />
+		<input type="submit" id="searchButton" value="search" />
+	</form>
+</div>
+
+<div id="dataContainer" class="show-{{resultsVisible}}">
+	<h2>Data - Max ID: {{twitterData.statuses[twitterData.statuses.length - 1].id_str}}</h2>
+	<button ng-click="doSave()">save</button>
+	<button ng-click="doNext()">next</button>
+	<table>
+		<tbody>
+			<tr ng-repeat="tweet in tweets">
+				<td>{{tweet.id}} - {{tweet.text}} - <span class="status-{{tweet.status}}">{{tweet.status}}</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="resultsContainer" class="show-{{resultsVisible}}">
+	<h2>Results</h2>
+	<textarea ng-model="results"></textarea>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="loader.js"></script>
+</body>
+</html>
