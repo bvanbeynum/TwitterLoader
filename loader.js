@@ -9,7 +9,7 @@ loaderApp.controller('LoaderControl', function LoaderControl($scope, $http) {
 
 	$scope.doSearch = function () {
 		if ($scope.searchText && $scope.searchText.length > 0) {
-			$http.get('http://localhost:5500/getTwitter?search=' + escape($scope.searchText)).success(function (data) {
+			$http.get('/getTwitter?search=' + escape($scope.searchText)).success(function (data) {
 				console.log('data complete');
 				$scope.results = JSON.stringify(data);
 				$scope.twitterData = data;
@@ -35,7 +35,7 @@ loaderApp.controller('LoaderControl', function LoaderControl($scope, $http) {
 	$scope.doNext = function () {
 		if ($scope.twitterData.statuses) {
 			console.log($scope.twitterData.statuses[$scope.twitterData.statuses.length - 1].id_str);
-			$http.get('http://localhost:5500/getTwitter?search=' + escape($scope.searchText) + '&maxid=' + $scope.twitterData.statuses[$scope.twitterData.statuses.length - 1].id_str).success(function (data) {
+			$http.get('/getTwitter?search=' + escape($scope.searchText) + '&maxid=' + $scope.twitterData.statuses[$scope.twitterData.statuses.length - 1].id_str).success(function (data) {
 				console.log('next complete');
 				$scope.results = JSON.stringify(data);
 				$scope.twitterData = data;
@@ -61,7 +61,7 @@ loaderApp.controller('LoaderControl', function LoaderControl($scope, $http) {
 	$scope.doSave = function () {
 		if ($scope.tweets && $scope.tweets.length > 0) {
 			for (var tweetIndex = 0; tweetIndex < $scope.tweets.length; tweetIndex++) {
-				$http.post('http://localhost:5500/saveTweet', $scope.tweets[tweetIndex].data).success(function (data) {
+				$http.post('/saveTweet', $scope.tweets[tweetIndex].data).success(function (data) {
 					console.log(JSON.stringify(data));
 				});
 			}

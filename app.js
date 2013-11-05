@@ -51,17 +51,6 @@ app.post('/saveTweet', function (request, response) {
 	});
 });
 
-app.get('/test', function (request, response) {
-	var webRequest = {
-		uri: 'http://localhost:5500/saveTweet',
-		method: 'POST',
-		json: { test: 'test data', test2: 'test 2 data' }
-	};
-	webClient(webRequest, function (webError, webResponse, webData) {
-		response.send('test complete: ' + webData);
-	});
-});
-
 app.listen(5500);
 console.log('listening on port 5500');
 
