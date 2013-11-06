@@ -22,15 +22,16 @@
 	<table>
 		<tbody>
 			<tr ng-repeat="tweet in tweets">
-				<td>{{tweet.id}} - {{tweet.text}} - <span class="status-{{tweet.status}}">{{tweet.status}}</span></td>
+				<td>{{tweet.id}} - {{tweet.text}}</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 
-<div id="resultsContainer" class="show-{{resultsVisible}}">
-	<h2>Results</h2>
-	<textarea ng-model="results"></textarea>
+<div id="consoleContainer" class="show-{{resultsVisible}}">
+	<h1>Output</h1>
+	<div ng-bind-html-unsafe="consoleOutput">
+	</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
